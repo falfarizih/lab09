@@ -11,7 +11,6 @@ public class Chessboard {
         solutions = new ArrayList<>();
     }
 
-    // Method to check if a position is safe for placing a queen
     public boolean isSafe(int row, int column) {
         for (int i = 0; i < column; i++) {
             Queen q = queens[i];
@@ -22,7 +21,6 @@ public class Chessboard {
         return true;
     }
 
-    // Method to check if any queens are threatening each other
     public boolean hasThreats() {
         for (int i = 0; i < SIZE; i++) {
             if (queens[i] != null) {
@@ -36,11 +34,10 @@ public class Chessboard {
         return false;
     }
 
-    // Method to place queens on the board
     public boolean placeQueens(int column) {
         if (column == SIZE) {
-            solutions.add(queens.clone()); // Store the solution
-            return true; // All queens are placed successfully
+            solutions.add(queens.clone());
+            return true;
         }
 
         boolean foundSolution = false;
@@ -48,13 +45,13 @@ public class Chessboard {
             if (isSafe(row, column)) {
                 queens[column] = new Queen(row, column);
                 foundSolution = placeQueens(column + 1) || foundSolution;
-                queens[column] = null; // Backtrack
+                queens[column] = null;
             }
         }
 
-        return foundSolution; // No safe position found in this column
+        return foundSolution;
     }
-    // Method to print the board configuration
+
     public void printBoard(Queen[] queens) {
         for (int row = 0; row < SIZE; row++) {
             for (int column = 0; column < SIZE; column++) {
@@ -76,7 +73,6 @@ public class Chessboard {
         System.out.println();
     }
 
-    // Method to print all solutions
     public void printAllSolutions() {
         for (Queen[] solution : solutions) {
             printBoard(solution);

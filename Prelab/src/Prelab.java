@@ -8,7 +8,6 @@ public class Prelab {
         displayMatrix(matrix);
     }
 
-    // Method to fill the matrix with a specified value
     public static void fillMatrixMinus1(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[0].length; col++) {
@@ -17,7 +16,6 @@ public class Prelab {
         }
     }
 
-    // Method to display the matrix
     public static void displayMatrix(int[][] matrix) {
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[0].length; col++) {
